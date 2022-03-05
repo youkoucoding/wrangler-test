@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from '../components/Modal';
+import sendFunc from '../utlis/sendFunc';
 
 export default function Home() {
   const [showModal, setShowModal] = React.useState(false);
@@ -16,7 +17,7 @@ export default function Home() {
   const onSubmit = async (formData) => {
     setSubmitting(true);
 
-    sendEmail(formData)
+    sendFunc(formData)
       .then((res) => {
         console.log(res.status);
         if (res.status !== 200) {
