@@ -18,9 +18,8 @@ export default function Home() {
     setSubmitting(true);
 
     sendFunc(formData)
-      .then((res) => {
-        console.log(res.status);
-        if (res.status !== 200) {
+      .then((response) => {
+        if (response.status !== 200) {
           throw new Error('Error at fetch');
         } else {
           setShowModal(true);
@@ -29,7 +28,6 @@ export default function Home() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setShowModal(true);
         setModalMessage('Sorry, something went wrong!');
         setSubmitting(false);
